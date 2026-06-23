@@ -1,6 +1,10 @@
 pandas
+numpy
 transformers
 accelerate>=1.1.0
+scikit-learn
+matplotlib
+seaborn
 sacrebleu
 bert_score
 datasets
