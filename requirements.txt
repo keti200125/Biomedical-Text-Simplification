@@ -1,12 +1,12 @@
-pandas
-numpy
-transformers
+pandas==2.2.3
+numpy==1.26.4
+transformers==4.46.3
 accelerate>=1.1.0
 scikit-learn
 matplotlib
 seaborn
 networkx
 sacrebleu
-bert_score
+bert-score
+evaluate
 datasets
-koq toq
