@@ -10,3 +10,4 @@ sacrebleu
 bert-score
 evaluate
 datasets
+streamlit

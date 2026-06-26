@@ -1,8 +1,11 @@
 .venv/
 __pycache__/
+.cache/
 *.py[cod]
 .DS_Store
 .cache/
 .env
 data/
 models/
+results/
+.streamlit/
