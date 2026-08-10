@@ -6,9 +6,11 @@ import pandas as pd
 import streamlit as st
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
-RESULTS_DIR = PROJECT_ROOT / "results"
-KG_DIR = PROJECT_ROOT / "data" / "knowledge_graph"
+CODE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CODE_DIR.parent
+DATA_DIR = CODE_DIR / "data" if (CODE_DIR / "data").exists() else PROJECT_ROOT / "data"
+RESULTS_DIR = CODE_DIR / "results" if (CODE_DIR / "results").exists() else PROJECT_ROOT / "results"
+KG_DIR = DATA_DIR / "knowledge_graph"
 
 
 st.set_page_config(

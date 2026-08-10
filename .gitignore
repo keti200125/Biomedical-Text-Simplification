@@ -1,11 +1,43 @@
-.venv/
+# Python
 __pycache__/
-.cache/
 *.py[cod]
-.DS_Store
-.cache/
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local configuration and secrets
 .env
+.env.*
+!.env.example
+.streamlit/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Project data, generated outputs, and model artifacts
 data/
 models/
 results/
-.streamlit/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+
+# Local caches and logs
+.cache/
+logs/
+*.log

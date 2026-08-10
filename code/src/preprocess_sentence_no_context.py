@@ -15,9 +15,11 @@ from pathlib import Path
 import pandas as pd
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-RAW_DATA_DIR = PROJECT_ROOT / "data" / "sentence" / "raw"
-OUTPUT_DIR = PROJECT_ROOT / "data" / "processed" / "sentence_no_context"
+CODE_DIR = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = CODE_DIR.parent
+DATA_DIR = CODE_DIR / "data" if (CODE_DIR / "data").exists() else PROJECT_ROOT / "data"
+RAW_DATA_DIR = DATA_DIR / "sentence" / "raw"
+OUTPUT_DIR = DATA_DIR / "processed" / "sentence_no_context"
 
 SPLIT_FILES = {
     "train": "cochraneauto_sents_train.csv",
@@ -81,8 +83,6 @@ def preprocess_split(df: pd.DataFrame) -> pd.DataFrame:
     processed["input_text"] = processed["complex"].fillna("").astype(str).str.strip()
     processed["target_text"] = processed["simple"].apply(parse_simple).str.strip()
 
-    # Delete empty targets after parsing. This is especially important for rows
-    # whose simple field is [] or otherwise blank.
     processed = processed[processed["target_text"].ne("")].copy()
 
     return processed[OUTPUT_COLUMNS].reset_index(drop=True)

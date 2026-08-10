@@ -7,8 +7,9 @@ from pathlib import Path
 import pandas as pd
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-RESULTS_DIR = PROJECT_ROOT / "results"
+CODE_DIR = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = CODE_DIR.parent
+RESULTS_DIR = CODE_DIR / "results" if (CODE_DIR / "results").exists() else PROJECT_ROOT / "results"
 
 LABELS_BG = {
     "rephrase": "преформулиране",
